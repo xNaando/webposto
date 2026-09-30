@@ -9,7 +9,6 @@ Site de tutoriais em vídeo do sistema webPosto, para treinar clientes e equipes
 - **Progresso salvo** — marque aulas como assistidas; o avanço fica em `localStorage` e vira barra de progresso em cada trilha.
 - **Retomada automática** — ao abrir uma trilha, ela continua da primeira aula não assistida.
 - **Busca e filtros** — encontre trilhas por nome, canal ou categoria.
-- **Playlists extras** — cole qualquer link de playlist/vídeo do YouTube para adicionar à sua biblioteca.
 
 ## Rodar local
 
@@ -44,6 +43,5 @@ src/
   components/
     Icon.jsx            # ícones SVG
     Home.jsx            # hero, filtros, busca e grade de trilhas
-    AddCustom.jsx       # modal para adicionar playlist/vídeo por link
     PlaylistView.jsx    # player + lista de aulas + progresso
 ```

@@ -423,55 +423,6 @@ a { color: inherit; text-decoration: none; }
   font-weight: 700;
   color: var(--ok);
 }
-.pl-del {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  z-index: 2;
-  width: 30px;
-  height: 30px;
-  border-radius: 9px;
-  display: grid;
-  place-items: center;
-  color: #fff;
-  background: rgba(6, 10, 20, 0.68);
-  border: 1px solid rgba(255, 255, 255, 0.14);
-  backdrop-filter: blur(4px);
-  opacity: 0;
-  transition: 0.2s;
-}
-.pl-card:hover .pl-del { opacity: 1; }
-.pl-del:hover { background: rgba(244, 63, 94, 0.85); }
-
-.add-card {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  text-align: center;
-  min-height: 240px;
-  padding: 22px;
-  border-radius: var(--radius);
-  border: 1.5px dashed #31436b;
-  background: transparent;
-  color: var(--muted);
-  transition: 0.2s;
-}
-.add-card:hover { border-color: var(--accent); color: var(--text); background: rgba(240, 67, 79, 0.05); }
-.add-card strong { color: var(--text); font-size: 0.95rem; }
-.add-card .muted { font-size: 0.8rem; }
-.add-icon {
-  width: 46px;
-  height: 46px;
-  border-radius: 14px;
-  display: grid;
-  place-items: center;
-  color: var(--accent);
-  background: rgba(240, 67, 79, 0.1);
-  border: 1px solid rgba(240, 67, 79, 0.3);
-}
-
 .empty {
   display: flex;
   align-items: center;
@@ -480,61 +431,6 @@ a { color: inherit; text-decoration: none; }
   color: var(--muted);
   margin-bottom: 18px;
 }
-
-/* ---------- modal ---------- */
-.overlay {
-  position: fixed;
-  inset: 0;
-  z-index: 60;
-  background: rgba(4, 8, 16, 0.72);
-  backdrop-filter: blur(4px);
-  display: grid;
-  place-items: center;
-  padding: 20px;
-}
-.modal {
-  width: min(460px, 100%);
-  background: var(--card);
-  border: 1px solid var(--line);
-  border-radius: 18px;
-  padding: 24px;
-  box-shadow: var(--shadow);
-}
-.modal-head { display: flex; align-items: center; justify-content: space-between; margin-bottom: 8px; }
-.modal-head h3 { font-size: 1.15rem; }
-.modal-x {
-  width: 32px;
-  height: 32px;
-  border-radius: 9px;
-  display: grid;
-  place-items: center;
-  color: var(--muted);
-}
-.modal-x:hover { background: var(--line); color: var(--text); }
-.modal > p { font-size: 0.9rem; line-height: 1.55; margin-bottom: 16px; }
-.field { display: flex; flex-direction: column; gap: 7px; font-size: 0.84rem; font-weight: 600; }
-.field input {
-  width: 100%;
-  background: var(--bg);
-  border: 1px solid var(--line);
-  border-radius: 11px;
-  padding: 12px 14px;
-  color: var(--text);
-  outline: none;
-  transition: border-color 0.2s;
-}
-.field input:focus { border-color: var(--accent); }
-.field-err { color: #f87171; font-size: 0.82rem; margin-top: 10px; }
-.field-ok {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  color: var(--ok);
-  font-size: 0.82rem;
-  font-weight: 600;
-  margin-top: 10px;
-}
-.modal-actions { display: flex; justify-content: flex-end; gap: 10px; margin-top: 20px; }
 
 /* ---------- tela da trilha ---------- */
 .view { padding: 28px 20px 80px; }

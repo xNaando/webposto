@@ -4,7 +4,6 @@ const KEY = 'webposto_tutoriais_v1'
 
 const defaults = {
   watched: {}, // { [playlistId]: [videoId] } — aulas marcadas como assistidas
-  custom: [], // [{ id, kind: 'playlist'|'video', title }] — playlists adicionadas pelo usuário
 }
 
 let memFallback = null // fallback caso localStorage esteja indisponível
@@ -18,7 +17,6 @@ export function loadStore() {
       ...structuredClone(defaults),
       ...parsed,
       watched: parsed.watched || {},
-      custom: parsed.custom || [],
     }
   } catch {
     return memFallback || structuredClone(defaults)

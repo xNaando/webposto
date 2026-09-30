@@ -1,12 +1,11 @@
-import { useMemo, useState } from 'react'
+import { useState } from 'react'
 import Icon from './Icon'
-import AddCustom from './AddCustom'
 import { watchedCount } from '../store'
 import { clamp } from '../utils'
 import logo from '../assets/logo.png'
 
 // Card de trilha: capa, título e nº de aulas vêm do YouTube (com fallback local)
-function TrailCard({ pl, meta, store, onOpen, onRemove }) {
+function TrailCard({ pl, meta, store, onOpen }) {
   const count = meta?.count ?? pl.count
   const done = watchedCount(store, pl.id)
   const pct = count ? clamp(done / count, 0, 1) * 100 : 0
@@ -40,34 +39,15 @@ function TrailCard({ pl, meta, store, onOpen, onRemove }) {
           <span className="pl-done"><Icon name="check" size={13} /> Concluída</span>
         )}
       </div>
-      {pl.tag === 'Minhas' && (
-        <span
-          className="pl-del"
-          role="button"
-          tabIndex={0}
-          aria-label="Remover"
-          onClick={(e) => { e.stopPropagation(); onRemove(pl.id, pl.kind) }}
-          onKeyDown={(e) => e.key === 'Enter' && (e.stopPropagation(), onRemove(pl.id, pl.kind))}
-        >
-          <Icon name="trash" size={15} />
-        </span>
-      )}
     </div>
   )
 }
 
-export default function Home({ playlists, custom, metas, store, onOpen, onAdd, onRemove }) {
+export default function Home({ playlists, metas, store, onOpen }) {
   const [tag, setTag] = useState('Todas')
   const [q, setQ] = useState('')
-  const [showAdd, setShowAdd] = useState(false)
 
-  const all = useMemo(
-    () => [
-      ...playlists,
-      ...custom.map((c) => ({ ...c, tag: 'Minhas', color: '#f43f5e', channel: 'Adicionado por você' })),
-    ],
-    [playlists, custom]
-  )
+  const all = playlists
   const tags = ['Todas', ...new Set(all.map((p) => p.tag))]
 
   const filtered = all.filter((p) => {
@@ -189,18 +169,10 @@ export default function Home({ playlists, custom, metas, store, onOpen, onAdd, o
               meta={metas[pl.id]}
               store={store}
               onOpen={onOpen}
-              onRemove={onRemove}
             />
           ))}
-          <button className="add-card" onClick={() => setShowAdd(true)}>
-            <span className="add-icon"><Icon name="plus" size={22} /></span>
-            <strong>Adicionar playlist ou vídeo</strong>
-            <span className="muted">Cole um link do YouTube e crie sua própria trilha</span>
-          </button>
         </div>
       </section>
-
-      {showAdd && <AddCustom onAdd={onAdd} onClose={() => setShowAdd(false)} />}
     </>
   )
 }

@@ -2,28 +2,6 @@
 export const clamp = (v, min, max) => Math.min(max, Math.max(min, v))
 
 // ---------- youtube ----------
-export function parseYouTube(input) {
-  const s = (input || '').trim()
-  if (!s) return null
-  try {
-    const u = new URL(s)
-    const list = u.searchParams.get('list')
-    if (list) return { kind: 'playlist', id: list }
-    const v = u.searchParams.get('v')
-    if (v) return { kind: 'video', id: v }
-    if (u.hostname === 'youtu.be') {
-      const id = u.pathname.replace('/', '')
-      if (id) return { kind: 'video', id }
-    }
-    const m = u.pathname.match(/\/(shorts|embed)\/([\w-]+)/)
-    if (m) return { kind: 'video', id: m[2] }
-  } catch {
-    if (/^[\w-]{11}$/.test(s)) return { kind: 'video', id: s }
-    if (/^[\w-]{12,}$/.test(s)) return { kind: 'playlist', id: s }
-  }
-  return null
-}
-
 export function ytUrl(item) {
   return item.kind === 'playlist'
     ? `https://www.youtube.com/playlist?list=${item.id}`

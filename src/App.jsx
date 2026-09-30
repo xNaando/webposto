@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from 'react'
+import { useEffect, useState } from 'react'
 import { useStore, watchedCount } from './store'
 import { PLAYLISTS } from './data/playlists'
 import { fetchItemsMeta } from './youtube'
@@ -12,7 +12,7 @@ export default function App() {
   const [open, setOpen] = useState(null) // trilha aberta
   const [metas, setMetas] = useState({})
 
-  const all = useMemo(() => [...PLAYLISTS, ...store.custom], [store.custom])
+  const all = PLAYLISTS
 
   // busca título/capa/nº de aulas de todas as trilhas em lotes (com cache)
   useEffect(() => {
@@ -29,18 +29,6 @@ export default function App() {
       if (set.has(videoId)) set.delete(videoId)
       else set.add(videoId)
       s.watched[plId] = [...set]
-      return s
-    })
-
-  const addCustom = (item) =>
-    update((s) => {
-      if (!s.custom.some((c) => c.id === item.id)) s.custom.push(item)
-      return s
-    })
-
-  const removeCustom = (id, kind) =>
-    update((s) => {
-      s.custom = s.custom.filter((c) => !(c.id === id && c.kind === kind))
       return s
     })
 
@@ -81,12 +69,9 @@ export default function App() {
         ) : (
           <Home
             playlists={PLAYLISTS}
-            custom={store.custom}
             metas={metas}
             store={store}
             onOpen={openItem}
-            onAdd={addCustom}
-            onRemove={removeCustom}
           />
         )}
       </main>
