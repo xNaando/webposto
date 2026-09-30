@@ -3,6 +3,7 @@ import Icon from './Icon'
 import AddCustom from './AddCustom'
 import { watchedCount } from '../store'
 import { clamp } from '../utils'
+import logo from '../assets/logo.png'
 
 // Card de trilha: capa, título e nº de aulas vêm do YouTube (com fallback local)
 function TrailCard({ pl, meta, store, onOpen, onRemove }) {
@@ -130,7 +131,7 @@ export default function Home({ playlists, custom, metas, store, onOpen, onAdd, o
               <div className="mock-bar"><i /><i /><i /></div>
               <div className="mock-thumb">
                 <span className="mock-play"><Icon name="play" size={28} /></span>
-                <span className="mock-badge"><Icon name="fuel" size={13} /> webPosto</span>
+                <span className="mock-badge"><img className="mock-logo" src={logo} alt="webPosto" /></span>
               </div>
               <div className="mock-rows">
                 <div className="mock-row"><i className="mock-dot ok" /><span style={{ width: '82%' }} /><Icon name="check" size={12} /></div>

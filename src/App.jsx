@@ -5,6 +5,7 @@ import { fetchItemsMeta } from './youtube'
 import Home from './components/Home'
 import PlaylistView from './components/PlaylistView'
 import Icon from './components/Icon'
+import logo from './assets/logo.png'
 
 export default function App() {
   const [store, update] = useStore()
@@ -60,7 +61,7 @@ export default function App() {
       <header className="topbar">
         <div className="topbar-inner container">
           <button className="brand" onClick={goHome}>
-            <span className="brand-mark"><Icon name="fuel" size={19} /></span>
+            <img className="brand-logo" src={logo} alt="webPosto" />
             <span className="brand-name">
               web<strong>Posto</strong> <em>tutoriais</em>
             </span>
@@ -92,7 +93,7 @@ export default function App() {
 
       <footer className="footer">
         <div className="container">
-          <Icon name="fuel" size={16} />
+          <img className="footer-logo" src={logo} alt="" />
           <span>
             Central de treinamento webPosto · vídeos hospedados no YouTube · progresso salvo neste navegador
           </span>
