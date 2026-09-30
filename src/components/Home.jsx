@@ -68,7 +68,7 @@ export default function Home({ playlists, metas, store, onOpen }) {
               <Icon name="fuel" size={14} /> Central de treinamento
             </span>
             <h1>
-              Domine o <em>webPosto</em> em vídeo-aulas
+              Domine o <em className="w-red">web</em><em className="w-blue">Posto</em> em vídeo-aulas
             </h1>
             <p className="hero-sub">
               Trilhas completas para treinar sua equipe — do primeiro acesso à gestão do posto.
@@ -99,8 +99,8 @@ export default function Home({ playlists, metas, store, onOpen }) {
             <div className="mock">
               <div className="mock-bar"><i /><i /><i /></div>
               <div className="mock-thumb">
+                <img className="mock-logo" src={logo} alt="" aria-hidden="true" />
                 <span className="mock-play"><Icon name="play" size={28} /></span>
-                <span className="mock-badge"><img className="mock-logo" src={logo} alt="webPosto" /></span>
               </div>
               <div className="mock-rows">
                 <div className="mock-row"><i className="mock-dot ok" /><span style={{ width: '82%' }} /><Icon name="check" size={12} /></div>

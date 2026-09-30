@@ -51,7 +51,7 @@ export default function App() {
           <button className="brand" onClick={goHome}>
             <img className="brand-logo" src={logo} alt="webPosto" />
             <span className="brand-name">
-              web<strong>Posto</strong> <em>tutoriais</em>
+              <i className="w-red">web</i><strong className="w-blue">Posto</strong> <em>tutoriais</em>
             </span>
           </button>
           <div className="top-actions">

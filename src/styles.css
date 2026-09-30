@@ -90,7 +90,8 @@ a { color: inherit; text-decoration: none; }
   box-shadow: 0 6px 18px -6px rgba(240, 67, 79, 0.5);
 }
 .brand-name { font-size: 1.12rem; font-weight: 700; letter-spacing: -0.02em; }
-.brand-name strong { font-weight: 800; }
+.brand-name i.w-red { font-style: normal; color: var(--accent); }
+.brand-name strong.w-blue { font-weight: 800; color: #6d9bff; }
 .brand-name em {
   font-style: normal;
   font-size: 0.72rem;
@@ -150,13 +151,9 @@ a { color: inherit; text-decoration: none; }
   margin-bottom: 20px;
 }
 .hero-copy h1 { font-size: clamp(2.1rem, 4.6vw, 3.4rem); font-weight: 800; }
-.hero-copy h1 em {
-  font-style: normal;
-  background: linear-gradient(120deg, var(--accent), var(--accent2));
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-}
+.hero-copy h1 em { font-style: normal; }
+.hero-copy h1 .w-red { color: var(--accent); }
+.hero-copy h1 .w-blue { color: #6d9bff; }
 .hero-sub {
   margin-top: 16px;
   font-size: 1.06rem;
@@ -217,6 +214,8 @@ a { color: inherit; text-decoration: none; }
   place-items: center;
 }
 .mock-play {
+  position: relative;
+  z-index: 1;
   width: 62px;
   height: 62px;
   border-radius: 50%;
@@ -226,19 +225,14 @@ a { color: inherit; text-decoration: none; }
   background: linear-gradient(135deg, var(--accent), var(--accent2));
   box-shadow: 0 10px 30px -8px rgba(240, 67, 79, 0.7);
 }
-.mock-badge {
+.mock-logo {
   position: absolute;
-  left: 12px;
-  bottom: 12px;
-  display: inline-flex;
-  align-items: center;
-  background: rgba(6, 10, 26, 0.6);
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  backdrop-filter: blur(4px);
-  padding: 4px;
-  border-radius: 9px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 100%;
+  opacity: 0.55;
 }
-.mock-logo { width: 30px; height: 30px; border-radius: 7px; display: block; }
 .mock-rows { padding: 12px 14px 16px; display: grid; gap: 10px; }
 .mock-row { display: flex; align-items: center; gap: 10px; }
 .mock-row > span {
