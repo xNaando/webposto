@@ -8,7 +8,7 @@ Site de tutoriais em vídeo do sistema webPosto, para treinar clientes e equipes
 - **Player embutido** — assista sem sair da página, com lista de aulas, duração e navegação Anterior/Próximo.
 - **Progresso salvo** — marque aulas como assistidas; o avanço fica em `localStorage` e vira barra de progresso em cada trilha.
 - **Retomada automática** — ao abrir uma trilha, ela continua da primeira aula não assistida.
-- **Busca e filtros** — encontre trilhas por nome, canal ou categoria.
+- **Filtros** — navegue por categoria: primeiros passos, treinamento completo, frente de caixa e gestão.
 
 ## Rodar local
 

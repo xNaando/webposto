@@ -45,22 +45,11 @@ function TrailCard({ pl, meta, store, onOpen }) {
 
 export default function Home({ playlists, metas, store, onOpen }) {
   const [tag, setTag] = useState('Todas')
-  const [q, setQ] = useState('')
 
   const all = playlists
   const tags = ['Todas', ...new Set(all.map((p) => p.tag))]
 
-  const filtered = all.filter((p) => {
-    if (tag !== 'Todas' && p.tag !== tag) return false
-    if (!q.trim()) return true
-    const s = q.trim().toLowerCase()
-    const m = metas[p.id]
-    return [p.title, p.channel, p.tag, p.blurb, m?.title, m?.channel]
-      .filter(Boolean)
-      .join(' ')
-      .toLowerCase()
-      .includes(s)
-  })
+  const filtered = all.filter((p) => tag === 'Todas' || p.tag === tag)
 
   const totalVideos = all.reduce((n, p) => n + (metas[p.id]?.count || p.count || 0), 0)
   const totalWatched = all.reduce((n, p) => n + watchedCount(store, p.id), 0)
@@ -130,20 +119,6 @@ export default function Home({ playlists, metas, store, onOpen }) {
             <h2>Trilhas de aprendizado</h2>
             <p className="muted">Escolha uma trilha e assista na ordem — seu progresso fica salvo neste navegador.</p>
           </div>
-          <label className="search">
-            <Icon name="search" size={16} />
-            <input
-              value={q}
-              onChange={(e) => setQ(e.target.value)}
-              placeholder="Buscar trilha..."
-              aria-label="Buscar trilha"
-            />
-            {q && (
-              <button className="search-clear" onClick={() => setQ('')} aria-label="Limpar busca">
-                <Icon name="x" size={14} />
-              </button>
-            )}
-          </label>
         </div>
 
         <div className="chip-row">
@@ -153,13 +128,6 @@ export default function Home({ playlists, metas, store, onOpen }) {
             </button>
           ))}
         </div>
-
-        {filtered.length === 0 && (
-          <div className="empty card">
-            <Icon name="search" size={28} />
-            <p>Nenhuma trilha encontrada para “{q}”.</p>
-          </div>
-        )}
 
         <div className="grid">
           {filtered.map((pl, i) => (
