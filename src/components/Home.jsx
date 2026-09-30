@@ -68,7 +68,7 @@ export default function Home({ playlists, metas, store, onOpen }) {
               <Icon name="fuel" size={14} /> Central de treinamento
             </span>
             <h1>
-              Domine o <em className="w-red">web</em><em className="w-blue">Posto</em> em vídeo-aulas
+              Domine o <em>webPosto</em> em vídeo-aulas
             </h1>
             <p className="hero-sub">
               Trilhas completas para treinar sua equipe — do primeiro acesso à gestão do posto.
